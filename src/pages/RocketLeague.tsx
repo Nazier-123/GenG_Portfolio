@@ -90,9 +90,9 @@ const RocketLeague = () => {
           <StaggeredContainer>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { tournament: 'RLCS 2024', placement: '1st Place', date: '2024' },
-                { tournament: 'RLCS Major', placement: '2nd Place', date: '2024' },
-                { tournament: 'Regional Championship', placement: '1st Place', date: '2024' },
+                { tournament: 'Esports World Cup', placement: '3rd-4th Place', date: '2024' },
+                { tournament: 'RLCS Winter Major', placement: '1st Place', date: '2024' },
+                { tournament: 'Birmingham Major: North America Open 3', placement: '1st Place', date: '2025' },
               ].map((tournament) => (
                 <motion.div
                   key={tournament.tournament}
