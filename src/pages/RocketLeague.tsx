@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import RLHero from '../assets/Rocket League/Gd4AOISW4AAae-C.png';
-import ScrollReveal from '../components/shared/ScrollReveal';
 import StaggeredContainer from '../components/shared/StaggeredContainer';
 import ParallaxSection from '../components/shared/ParallaxSection';
 import SectionDivider from '../components/shared/SectionDivider';
@@ -41,46 +40,41 @@ const RocketLeague = () => {
       {/* Team Roster Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <h2 className="text-4xl font-bold text-center text-white mb-12">
-              Team Roster
-            </h2>
-          </ScrollReveal>
-          <StaggeredContainer>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { name: 'MajicBear', role: 'Player' },
-                { name: 'jstn.', role: 'Player' },
-                { name: 'rise.', role: 'Player' },
-              ].map((player) => (
-                <motion.div
-                  key={player.name}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-gray-900 rounded-lg overflow-hidden"
-                >
-                  <div 
-                    className="h-56 bg-gray-800 bg-cover bg-center transition-transform duration-500"
-                    style={{ backgroundImage: `url(${RLHero})` }}
-                    aria-label={`${player.name} player image`}
+          <h2 className="text-4xl font-bold text-center text-white mb-12">
+            Team Roster
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: 'MajicBear', role: 'Player' },
+              { name: 'jstn.', role: 'Player' },
+              { name: 'rise.', role: 'Player' },
+            ].map((player) => (
+              <motion.div
+                key={player.name}
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-gray-900 rounded-lg overflow-hidden"
+              >
+                <div className="h-56 bg-gray-800 overflow-hidden">
+                  <img
+                    src={RLHero}
+                    alt={`${player.name} player image`}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
                   />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-1">{player.name}</h3>
-                    <p className="text-geng-gold">{player.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </StaggeredContainer>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-1">{player.name}</h3>
+                  <p className="text-geng-gold">{player.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Section Divider */}
-      <SectionDivider>
+      <SectionDivider size="small">
         TOURNAMENT HISTORY
       </SectionDivider>
 
@@ -115,54 +109,90 @@ const RocketLeague = () => {
       </section>
 
       {/* Section Divider */}
-      <SectionDivider>
-        TEAM HIGHLIGHTS
+      <SectionDivider size="small">
+        LATEST CONTENT
       </SectionDivider>
 
-      {/* Highlights Section */}
-      <section className="py-20">
+      {/* Content Section */}
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <StaggeredContainer>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: 'Incredible Aerial Goal', description: 'Watch the team execute a perfect aerial play', link: '#' },
-                { title: 'Championship Winning Moment', description: 'The moment that secured victory', link: '#' },
-              ].map((highlight, idx) => (
-                <motion.div
-                  key={idx}
-                  variants={{
-                    hidden: { opacity: 0, x: -50 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-gray-900 rounded-lg overflow-hidden cursor-pointer group"
-                >
-                  <div 
-                    className="h-48 bg-gray-800 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${RLHero})` }}
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-geng-gold transition-colors">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-gray-400 mb-4">{highlight.description}</p>
-                    <a 
-                      href={highlight.link}
-                      className="text-geng-gold hover:underline font-medium inline-flex items-center gap-2 group/link"
+                {
+                  title:'LISTEN to the NA CHAMPS make RLCS HISTORY',
+                  tag: 'Rocket League',
+                  link: 'https://youtu.be/rpXb5gqJ6v8?si=d6anTZIIMhUC-zEU',
+                  thumbnail: null,
+                },
+                {
+                  title: 'Pro Team Vs The BEST AI Bots: Can they Win?',
+                  tag: 'Rocket League',
+                  link: 'https://youtu.be/tHfUScQlv7o?si=JXJ_AiMN-QP5Fyge',
+                  thumbnail: null,
+                },
+                {
+                  title: 'LISTEN to RLCS PROS try to become Champions in the London Major 2024',
+                  tag: 'Rocket League',
+                  link: 'https://youtu.be/Y0np6z-i85I?si=RGKsATgoM2i0g-bJ',
+                  thumbnail: null,
+                },
+
+              ].map((item, idx) => {
+                // Helper function to extract YouTube video ID from URL
+                const getYouTubeThumbnail = (url: string) => {
+                  if (!url || url === '#') return null;
+                  // Match various YouTube URL formats
+                  const match = url.match(/(?:youtube\.com\/live\/|youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
+                  if (match && match[1]) {
+                    const videoId = match[1];
+                    // Use hqdefault as primary since it's more reliable
+                    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                  }
+                  return null;
+                };
+
+                const thumbnail = item.thumbnail || getYouTubeThumbnail(item.link);
+
+                return (
+                  <motion.div
+                    key={idx}
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-gray-800 rounded-lg overflow-hidden flex flex-col"
+                  >
+                    <div 
+                      className="h-40 bg-gray-700 bg-cover bg-center relative overflow-hidden"
+                      style={thumbnail ? { backgroundImage: `url(${thumbnail})` } : {}}
                     >
-                      Watch Highlight
-                      <motion.span
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
+                      {thumbnail && (
+                        <img 
+                          src={thumbnail} 
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <span className="text-geng-gold text-sm font-semibold mb-2">{item.tag}</span>
+                      <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
+                      <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="mt-auto btn-primary self-start inline-block"
                       >
-                        →
-                      </motion.span>
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+                        Watch
+                      </a>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </StaggeredContainer>
         </div>

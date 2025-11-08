@@ -25,7 +25,7 @@ const StaggeredContainer = ({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.1, margin: '-100px' }}
       className={className}
     >
       {children}

@@ -4,10 +4,19 @@ import { useState } from 'react';
 import HeroBg from '../assets/LoL_Main_img.png';
 import LCKImg from '../assets/LCK/06_2490_R4.png';
 import RLImg from '../assets/Rocket League/Gd4AOISW4AAae-C.png';
-import ValorantImg from '../assets/Valorant/9_bdcc7313-778c-4da2-8b11-54998b6e999b.png';
 import ScrollReveal from '../components/shared/ScrollReveal';
 import StaggeredContainer from '../components/shared/StaggeredContainer';
 import ParallaxSection from '../components/shared/ParallaxSection';
+import ValorantTeamImg from '../assets/Valorant/Gen.G_VALORANT_Champions_2024.jpg';
+// Partner logos
+import Partner1 from '../assets/Partners/4.png';
+import Partner2 from '../assets/Partners/9.png';
+import Partner3 from '../assets/Partners/DESCENTE_Black_Edit.png';
+import Partner4 from '../assets/Partners/GGA_LOGO_BLACK_1.png';
+import Partner5 from '../assets/Partners/LG_Ultragear_Black.png';
+import Partner6 from '../assets/Partners/LogitechG_Black.png';
+import Partner7 from '../assets/Partners/M_Stroke.png';
+import Partner8 from '../assets/Partners/SOOP_Black_udate.png';
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -148,7 +157,7 @@ const Home = () => {
                 <Link to="/valorant" className="block">
                   <div
                     className="h-48 bg-gray-800 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${ValorantImg})` }}
+                    style={{ backgroundImage: `url(${ValorantTeamImg})` }}
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-geng-gold transition-colors">VALORANT</h3>
@@ -241,15 +250,92 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Partners Strip */}
-      <section className="py-10 bg-black/80 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-gray-400 text-sm tracking-widest mb-6">Gen.G Partners</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center opacity-80">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-10 bg-gray-800 rounded" />
+      {/* Partners Section */}
+      <section className="py-20 bg-[#faf9f7] relative overflow-hidden">
+        {/* Decorative background elements similar to Lando Norris site */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-geng-gold/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-geng-gold/5 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal>
+            <h3 className="text-center text-gray-700 text-xs tracking-[0.2em] uppercase mb-16 font-medium">
+              Partners
+            </h3>
+          </ScrollReveal>
+        </div>
+        
+        {/* Infinite scrolling logos - Full width */}
+        <div className="overflow-hidden relative w-full">
+          <motion.div
+            className="flex items-center gap-12 md:gap-16 lg:gap-20"
+            animate={{
+              x: ['0%', '-50%'], // Move left by 50% (half the width of duplicated set)
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+            style={{ width: 'fit-content' }}
+          >
+            {/* First set of logos */}
+            {[
+              { name: 'Partner 1', logo: Partner1 },
+              { name: 'Partner 2', logo: Partner2 },
+              { name: 'DESCENTE', logo: Partner3 },
+              { name: 'GGA', logo: Partner4 },
+              { name: 'LG UltraGear', logo: Partner5 },
+              { name: 'Logitech G', logo: Partner6 },
+              { name: 'Partner 7', logo: Partner7 },
+              { name: 'SOOP', logo: Partner8 },
+            ].map((partner, idx) => (
+              <div
+                key={`first-${idx}`}
+                className="flex items-center justify-center h-10 md:h-14 flex-shrink-0"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-full w-auto object-contain max-w-[120px]"
+                />
+              </div>
             ))}
-          </div>
+            {/* Duplicate set for seamless loop */}
+            {[
+              { name: 'Partner 1', logo: Partner1 },
+              { name: 'Partner 2', logo: Partner2 },
+              { name: 'DESCENTE', logo: Partner3 },
+              { name: 'GGA', logo: Partner4 },
+              { name: 'LG UltraGear', logo: Partner5 },
+              { name: 'Logitech G', logo: Partner6 },
+              { name: 'Partner 7', logo: Partner7 },
+              { name: 'SOOP', logo: Partner8 },
+            ].map((partner, idx) => (
+              <div
+                key={`second-${idx}`}
+                className="flex items-center justify-center h-10 md:h-14 flex-shrink-0"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-full w-auto object-contain max-w-[120px]"
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal delay={0.3}>
+            <p className="text-center text-gray-600 text-sm mt-16 max-w-2xl mx-auto leading-relaxed">
+              Gen.G is proud to collaborate with a range of partners who share our passion for performance across multiple industries.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
